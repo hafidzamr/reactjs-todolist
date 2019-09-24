@@ -19,7 +19,6 @@ const FormTodo = ({newList}) => {
       <form onSubmit={handleSubmit}>
         <label>Add New Todo</label>
         <input type="text" onChange={handleChange} value={List.content} />
-        <button>Add new todo list</button>
       </form>
     </div>
   );
