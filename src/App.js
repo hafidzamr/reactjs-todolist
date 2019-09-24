@@ -1,26 +1,35 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import TodoApp from './Todo';
+import FormTodo from './Form';
+const App = () => {
+  const initialState = [
+    {
+      id: 1,
+      content: 'test1',
+    },
+    {
+      id: 2,
+      content: 'test2',
+    },
+  ];
+  const [Todo, setTodo] = useState(initialState);
 
-function App() {
+  const deleteList = id => {
+    const delTodo = Todo.filter((todos, i) => todos.id !== id);
+    setTodo(delTodo);
+  };
+
+  const addList = newList => {
+    newList.id = Math.floor(Math.random());
+    setTodo([...Todo, newList]);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>Todo List App</h1>
+      <FormTodo newList={addList} />
+      <TodoApp todo={Todo} deleteList={deleteList} />
     </div>
   );
-}
+};
 
 export default App;
