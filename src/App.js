@@ -25,7 +25,7 @@ const App = () => {
   };
   return (
     <div>
-      <h1>Todo List App</h1>
+      <h1>Tambahin Brok</h1>
       <FormTodo newList={addList} />
       <TodoApp todo={Todo} deleteList={deleteList} />
     </div>
